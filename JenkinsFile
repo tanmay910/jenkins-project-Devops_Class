@@ -11,9 +11,7 @@ pipeline {
     }
 
     stages {
-
-         stages {
-        stage('Install Dependencies') {
+        stage('Install Zip Dependency') { // Renamed for uniqueness
             steps {
                 sh 'sudo apt update && sudo apt install zip -y'
             }
@@ -27,12 +25,11 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Install Node Dependencies') { // Renamed for uniqueness
             steps {
                 sh 'node --version' // Print Node.js version
                 sh 'npm --version' // Print npm version
-                sh 'npm install --loglevel=error'
-                 // Install dependencies with error logging
+                sh 'npm install --loglevel=error' // Install dependencies with error logging
             }
         }
 
@@ -47,7 +44,6 @@ pipeline {
                 sh 'zip -r jenkins-project-Devops_Class.zip .' // Create a zip file of the entire directory
             }
         }
-
     }
 
     post {
@@ -58,5 +54,4 @@ pipeline {
             echo 'Application failed during build, test, or packaging!' // Failure message
         }
     }
-}
 }
