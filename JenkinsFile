@@ -11,11 +11,11 @@ pipeline {
     }
 
     stages {
-        stage('Install Zip Dependency') { // Renamed for uniqueness
-            steps {
-                sh 'apt update && sudo apt install zip -y'
-            }
-        }
+        // stage('Install Zip Dependency') { // Renamed for uniqueness
+        //     steps {
+        //         sh 'apt update && sudo apt install zip -y'
+        //     }
+        // }
 
         stage('Checkout') {
             steps {
