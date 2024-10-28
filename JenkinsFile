@@ -11,6 +11,14 @@ pipeline {
     }
 
     stages {
+
+         stages {
+        stage('Install Dependencies') {
+            steps {
+                sh 'sudo apt update && sudo apt install zip -y'
+            }
+        }
+        
         stage('Checkout') {
             steps {
                 cleanWs() // Clean workspace before checkout
@@ -23,7 +31,8 @@ pipeline {
             steps {
                 sh 'node --version' // Print Node.js version
                 sh 'npm --version' // Print npm version
-                sh 'npm install --loglevel=error' // Install dependencies with error logging
+                sh 'npm install --loglevel=error'
+                 // Install dependencies with error logging
             }
         }
 
