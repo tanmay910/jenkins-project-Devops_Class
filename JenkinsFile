@@ -18,7 +18,7 @@ pipeline {
                 sh 'sudo apt update && sudo apt install zip -y'
             }
         }
-        
+
         stage('Checkout') {
             steps {
                 cleanWs() // Clean workspace before checkout
@@ -58,4 +58,5 @@ pipeline {
             echo 'Application failed during build, test, or packaging!' // Failure message
         }
     }
+}
 }
