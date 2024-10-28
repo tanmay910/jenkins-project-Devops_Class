@@ -35,7 +35,7 @@ pipeline {
 
         stage('Package Application') {
             steps {
-                sh 'zip -r my-node-app.zip .' // Create a zip file of the application
+                sh 'zip -r jenkins-project-Devops_Class.zip' // Create a zip file of the application
             }
         }
     }
